@@ -1,0 +1,30 @@
+{% extends 'meetup/main.html'%}
+{%block title%}Participants{%endblock%}
+{%block about%} {%endblock%}
+{%block footer%} {%endblock%}
+{%block header%} {%endblock%}
+{%block meetup%} {%endblock%}
+{%block confirm%}
+  <section id="call-action" class="call-action">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
+          <div class="inner-content">
+            <form method="POST">
+                {%csrf_token%}
+                <p class="display-5"> Do you want to <span class="text-danger display-5">delete </span> </p><h2>{{participant.name}} ?</h2> 
+        
+                <a class="text-dark btn btn-light" href="{% url 'participant-details' participant.id%}">Back</a>
+                <button type="submit" class="text-dark btn btn-light mx-3">Delete</button>
+        
+            </form>
+            <!-- <div class="light-rounded-buttons">
+              <a href="javascript:void(0)" class="btn primary-btn-outline">Get Started</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%endblock%}

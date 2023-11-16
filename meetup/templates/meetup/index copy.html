@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homet</title>
+</head>
+<br>
+    {% if request.user.is_authenticated%}
+    <span>Welcome {{request.user.username}}</span>
+    <a href="{% url 'logout' %}">Logout</a>
+    {%else%}
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+    <hr>
+
+    <h2>{{title}}</h2>
+<a href="{% url 'meetup-create' %}" target="_blank">Create Meetup</a><span><a href="{% url 'user-meetups'%}">My Meetups</a></span><br>
+<form method="GET" action="">
+    {%csrf_token%}
+    
+    <input type="search" name="q" placeholder="search meetups"/>
+    <button type="submit">search</button>
+ 
+</form> <a href="{% url 'index'%}">refresh</a>  <br>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Organizer Email</th>
+            <th>Location</th>
+            <th>View</th>
+            
+        </tr>
+        {% for meetup in meetups %}
+        <tr>
+            <td>{{meetup.title}}</td>
+            <td>{{meetup.organizer_email}}</td>
+            <td>{{meetup.location_name}}</td>
+            <td><a href="{% url 'meetup-details' meetup.slug %}">View</a></td>
+          
+        </tr>
+        {% endfor %}
+       
+    </table>
+
+
+</body>
+</html>

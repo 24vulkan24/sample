@@ -1,0 +1,51 @@
+{% extends 'meetup/main.html'%}
+{%block title%}Edit Participants{%endblock%}
+
+{%block header%} {%endblock%}
+
+{%block meetup%}
+<div id="blog" class="latest-news-area section">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content">
+            
+              <h2 class="fw-bold mt-3">Edit Participants</h2>
+              <p>
+                Input Details Here
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+<div class="container">
+    <div class="row">
+      
+      <div class=" col-md-9 m-auto">
+        <form method="POST"  enctype="multipart/form-data">
+
+            {%csrf_token%}
+    
+            {{form.as_p}}
+            <div class="d-grid"> 
+                <button type="submit" class="btn btn-primary mt-3 ">Update</button>
+            </div> 
+    
+        </form>
+    
+        
+      </div>
+ 
+    </div>
+  </div>
+
+</div>
+</div>
+
+{%endblock%}

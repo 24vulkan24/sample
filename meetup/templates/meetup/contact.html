@@ -1,0 +1,88 @@
+{% extends 'meetup/main.html'%}
+{%block title%}Contact{%endblock%}
+
+{%block header%} {%endblock%}
+
+
+{%block confirm%} {%endblock%}
+
+{%block contact%}
+<section  class="contact-section m-5">
+   
+
+<div class="container">
+    <div class="row">
+      <div class="col-xl-4">
+        <div class="contact-item-wrapper">
+          <div class="row">
+            <div class="col-12 col-md-6 col-xl-12">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="lni lni-phone"></i>
+                </div>
+                <div class="contact-content">
+                  <h4>Contact</h4>
+                  <p>09018097003</p>
+                  <p>hayatudeenisah92@gmail.com</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-12">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="lni lni-map-marker"></i>
+                </div>
+                <div class="contact-content">
+                  <h4>Address</h4>
+                  <p>Abuja Arab Road Kubwa</p>
+                  <p>Nigeria</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-12">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="lni lni-alarm-clock"></i>
+                </div>
+                <div class="contact-content">
+                  <h4>Schedule</h4>
+                  <p>24 Hours / 7 Days Open</p>
+                  <p>Time: 10am--6pm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8">
+        <div class="contact-form-wrapper">
+          <div class="row">
+            <div class="col-xl-10 col-lg-8 mx-auto">
+              <div class="section-title text-center">
+                <span> Get in Touch </span>
+                <h2>
+                  Ready to Get Started
+                </h2>
+                <p>
+                  At vero eos et accusamus et iusto odio dignissimos ducimus
+                  quiblanditiis praesentium
+                </p>
+              </div>
+            </div>
+          </div>
+          <form action="#" class="contact-form" method="POST">
+                  {%csrf_token%}
+                  {{form.as_p}}
+                  <button type="submit" class="btn primary-btn rounded-full">
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{%endblock%}

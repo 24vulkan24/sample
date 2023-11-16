@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homet</title>
+</head>
+<br>
+    {% if request.user.is_authenticated%}
+    <span>Welcome {{request.user.username}}</span>
+    <a href="{% url 'logout' %}">Logout</a>
+    {%else%}
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+    <hr>
+
+    <h2>{{meetup.title}}</h2>
+<a href="{% url 'speaker-create' %}" target="_blank">Create speaker</a><span><a href="{% url 'user-meetups'%}">My Meetups</a></span><br>
+<form method="GET" action="">
+    {%csrf_token%}
+    
+    <input type="search" name="q" placeholder="search speakers"/>
+    <button type="submit">search</button>
+ 
+</form> <a href="{% url 'index'%}">refresh</a>  <br>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            
+        </tr>
+        {% for speaker in speakers %}
+        <tr>
+            <td>{{speaker.name}}</td>
+            <td>{{speaker.email}}</td>
+            <td>{{speaker.phone}}</td>
+            <td><a href="{% url 'speaker-details' speaker.id %}">View</a></td>
+            <td><a href="{% url 'speaker-update' speaker.id %}">Edit</a></td>
+            <td><a href="{% url 'speaker-delete' speaker.id %}">Delete</a></td>
+          
+        </tr>
+        {% endfor %}
+       
+    </table>
+
+
+</body>
+</html>

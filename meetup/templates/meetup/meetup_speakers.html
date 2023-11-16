@@ -1,0 +1,58 @@
+{% extends 'meetup/main.html'%}
+{%block title%}Home{%endblock%}
+{%block about%} {%endblock%}
+{%block confirm%} {%endblock%}
+{%block header%} {%endblock%}
+{%block meetup%}
+<div id="blog" class="latest-news-area section">
+    <!--======  Start Section Title Five ======-->
+    <a href="{%url 'user-meetups'%}"><button type="submit"class="btn btn-primary btn-start"><i class="lni lni-steam">Back</button></i></a>
+    <div class="section-title-five">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+           
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+<div class="container">
+    <h2 class="text-center">{{meetup.title}}</h2>
+    <a class="btn btn-primary m-2" href="{% url 'speaker-create' %}" target="_blank">Add speaker</a> 
+    <!-- <span><a class="btn btn-primary m-2" href="{% url 'user-meetups'%}">My Meetups</a></span><br> -->
+    <div class="row">
+       
+        <table class="table table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
+            </tr>
+            {% for speaker in speakers %}
+            <tr>
+                <td>{{speaker.name}}</td>
+                <td>{{speaker.email}}</td>
+                <td>{{speaker.phone}}</td>
+                <td><a href="{% url 'speaker-details' speaker.id %}">View</a></td>
+                <td><a href="{% url 'speaker-update' speaker.id %}">Edit</a></td>
+                <td><a href="{% url 'speaker-delete' speaker.id %}">Delete</a></td>
+              
+            </tr>
+            {% endfor %}
+           
+        </table>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+{%endblock%}

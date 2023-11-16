@@ -1,0 +1,55 @@
+
+{% extends 'meetup/main.html'%}
+{%block title%}Login{%endblock%}
+
+{%block header%} {%endblock%}
+
+{%block meetup%}
+<div id="blog" class="latest-news-area section">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="content">
+            
+              <h2 class="fw-bold mt-3">Login</h2>
+              <p>
+                Login to your account to create and manage meetups
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+<div class="container">
+    <div class="row">
+      
+      <div class=" col-md-6 m-auto">
+        <form method="POST" >
+            {%csrf_token%}
+    <label class="form-label">Email</label>
+    <input class="form-control" type="email" name="email" placeholder="Enter your email">
+  
+    <label class="form-label">Password</label>
+    <input class="form-control" type="password" name="password" placeholder="Enter your password">
+   
+    <button class="btn btn-primary mt-2" type="submit">Login</button>
+    
+        </form>
+      <p>Not Register yet? <a class="btn btn-outline-primary" href="{% url 'register'%}">Register</a></p>  
+      <p>forgot password? <a class="btn btn-outline-primary" href="{% url 'password-reset'%}">set pasword</a></p>  
+        
+      </div>
+ 
+    </div>
+  </div>
+
+</div>
+</div>
+
+{%endblock%}
+

@@ -1,0 +1,50 @@
+
+{% extends 'meetup/main.html'%}
+{%block title%}Login{%endblock%}
+
+{%block header%} {%endblock%}
+
+{%block meetup%}
+<div id="blog" class="latest-news-area section">
+    <!--======  Start Section Title Five ======-->
+    <div class="section-title-five">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="content">
+            
+              <h2 class="fw-bold mt-3">Create Account</h2>
+              <p>
+                Create account to access to several features
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- container -->
+    </div>
+    <!--======  End Section Title Five ======-->
+<div class="container">
+    <div class="row">
+      
+      <div class=" col-md-6 m-auto">
+        <form method="POST" >
+            {%csrf_token%}
+    {{form.as_p}}
+   
+    <button class="btn btn-primary mt-2" type="submit">Register</button>
+    
+        </form>
+      <p> Have an account? <a class="btn btn-outline-primary btn-sm me-2 mt-2 " href="{% url 'login'%}">Login</a></p>  
+        
+      </div>
+ 
+    </div>
+  </div>
+
+</div>
+</div>
+
+{%endblock%}
+
