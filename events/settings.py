@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-&_@d6l6b7csx5_p!ox^81&)i5ea2js^wtejrji0jx0=i7b1&ar
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL='meetup.CustomUser'
 # Application definition
@@ -173,3 +173,11 @@ RECIPIENT_ADDRESS=recipient_address
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ALLOWED_ORIGINS = [
+        'https://meetup-project-i5zd.onrender.com/',
+        "http://localhost:8000"
+        
+    ]
+
+CSRF_TRUSTED_ORIGINS = ['https://meetup-project-i5zd.onrender.com/']
+CORS_ALLOW_CREDENTIALS=True
